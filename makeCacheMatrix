@@ -1,0 +1,14 @@
+makeCacheMatrix<-function(x) {
+	A<-matrix(data=x,nrow=sqrt(length(x)),ncol=sqrt(length(x)))
+	inverse<-NULL
+	set<-function(y){
+		A<<-matrix(data=y,nrow=sqrt(length(y)),ncol=sqrt(length(y)))
+		inverse<<-NULL
+	}
+	get<-function() A
+	setInverseMatrix<-function(solve) inverse<<-solve
+	getInverseMatrix<-function() inverse
+	list(set=set,get=get,setInverseMatrix=setInverseMatrix,
+	     getInverseMatrix=getInverseMatrix)
+}
+
