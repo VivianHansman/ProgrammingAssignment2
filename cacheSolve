@@ -1,0 +1,11 @@
+cacheSolve<-function(x,...){
+	inverse<-x$getInverseMatrix()
+	if(!is.null(inverse)){
+		message("getting cachedd data")
+		return(inverse)
+	}
+	data<-x$get()
+	solve<-solve(data,...)
+	x$setInverseMatrix(solve)
+	solve
+}
